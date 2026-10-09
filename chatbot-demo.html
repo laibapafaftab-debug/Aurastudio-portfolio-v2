@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Lead Capture Chatbot Demo — AuraStudio</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #0B1220;
+    --bg-panel: #111A2C;
+    --line: rgba(237,234,226,0.10);
+    --line-strong: rgba(237,234,226,0.18);
+    --paper: #EDEAE2;
+    --paper-dim: #9BA3B4;
+    --accent: #F2B134;
+    --good: #6FB6A8;
+    --radius: 3px;
+    --maxw: 900px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    background:var(--bg);
+    color:var(--paper);
+    font-family:'IBM Plex Sans', sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:600;
+    letter-spacing:-0.01em;
+  }
+  .mono{
+    font-family:'IBM Plex Mono', monospace;
+    letter-spacing:0.02em;
+  }
+  a{color:inherit; text-decoration:none;}
+  .wrap{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0 32px;
+  }
+  /* NAV */
+  header.nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(11,18,32,0.85);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    max-width:var(--maxw); margin:0 auto; padding:18px 32px;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .brand{
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:600; font-size:1.15rem;
+    display:flex; align-items:center; gap:8px;
+  }
+  .brand-mark{
+    width:9px; height:9px; border-radius:50%;
+    background:var(--accent);
+  }
+  .back-link{
+    font-size:0.88rem;
+    color:var(--paper-dim);
+    border:1px solid var(--line-strong);
+    padding:6px 14px;
+    border-radius:var(--radius);
+    transition:border-color 0.15s, color 0.15s;
+  }
+  .back-link:hover{border-color:var(--accent); color:var(--paper);}
+
+  /* CONTENT */
+  .project-hero{
+    padding:80px 0 40px;
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.8rem;
+    color:var(--good);
+    margin-bottom:16px;
+  }
+  .project-hero h1{
+    font-size:clamp(2rem, 4vw, 2.8rem);
+    margin-bottom:16px;
+    color:var(--paper);
+  }
+  .project-hero p{
+    font-size:1.05rem;
+    color:var(--paper-dim);
+    max-width:60ch;
+  }
+  
+  .tech-stack{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    margin:24px 0 40px;
+  }
+  .tech-badge{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.78rem;
+    background:var(--bg-panel);
+    border:1px solid var(--line-strong);
+    padding:6px 12px;
+    border-radius:var(--radius);
+    color:var(--accent);
+  }
+
+  .content-section{
+    background:var(--bg-panel);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:36px;
+    margin-bottom:32px;
+  }
+  .content-section h2{
+    font-size:1.35rem;
+    margin-bottom:16px;
+    color:var(--paper);
+  }
+  .content-section p{
+    color:var(--paper-dim);
+    margin-bottom:14px;
+    font-size:0.98rem;
+  }
+  .content-section ul{
+    list-style:none;
+    margin-top:14px;
+  }
+  .content-section ul li{
+    position:relative;
+    padding-left:20px;
+    color:var(--paper-dim);
+    margin-bottom:8px;
+    font-size:0.95rem;
+  }
+  .content-section ul li::before{
+    content:'—';
+    position:absolute; left:0; color:var(--accent);
+  }
+
+  /* FOOTER */
+  footer{
+    padding:40px 0;
+    border-top:1px solid var(--line);
+    margin-top:60px;
+    font-size:0.85rem;
+    color:var(--paper-dim);
+    text-align:center;
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <div class="brand"><span class="brand-mark"></span>AuraStudio</div>
+    <a href="index.html" class="back-link">&larr; Back to Portfolio</a>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="project-hero">
+    <div class="eyebrow mono">// case study &amp; live demo preview</div>
+    <h1>AI Lead Capture Chatbot Demo</h1>
+    <p>An intelligent chatbot solution built to interact with website visitors, intelligently qualify inbound queries, and log structured data directly into a backend database without manual friction.</p>
+    
+    <div class="tech-stack">
+      <span class="tech-badge">FastAPI</span>
+      <span class="tech-badge">Google Gemini API</span>
+      <span class="tech-badge">SQLite</span>
+      <span class="tech-badge">Python</span>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <h2>The Problem</h2>
+    <p>Small businesses and agency owners often miss prospective clients because traditional contact forms lack interactivity. Visitors drop off if they don't get immediate answers, and sorting through raw form submissions takes up valuable manual hours.</p>
+  </section>
+
+  <section class="content-section">
+    <h2>How It Works</h2>
+    <p>This system bridges frontend user interaction with generative intelligence and robust backend storage:</p>
+    <ul>
+      <li><strong>Real-time Conversation:</strong> The chat interface engages visitors, answers product/service inquiries using the Gemini API context, and maintains conversational flow.</li>
+      <li><strong>Intelligent Qualification:</strong> The chatbot extracts critical details (such as budget, timeline, and project requirements) automatically.</li>
+      <li><strong>Automated Logging:</strong> FastAPI processes the verified payload and secures the entry instantly inside an SQLite database for review.</li>
+    </ul>
+  </section>
+
+  <section class="content-section">
+    <h2>Impact &amp; Results</h2>
+    <p>Eliminates manual lead entry, ensures zero delayed responses for high-intent visitors, and directly routes organized lead data into your sales pipeline.</p>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>&copy; 2026 AuraStudio. Built by Laiba Aftab.</p>
+  </div>
+</footer>
+
+</body>
+</html>
