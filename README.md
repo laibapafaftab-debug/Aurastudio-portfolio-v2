@@ -38,7 +38,7 @@ Everything lives in a single `index.html` file — styles and scripts are inline
 - GitHub: [@laibapafaftab-debug](https://github.com/laibapafaftab-debug)
 - LinkedIn: [Laiba Aftab](https://www.linkedin.com/in/laiba-aftab-211705420/)
 
-**Screenshorts**
+##Screenshorts##
 
   **Desktop**
 
