@@ -312,16 +312,16 @@
     </div>
 
     <div class="case sr">
-      <div class="case-tag mono">this page</div>
+      <div class="case-tag mono">seo landing page</div>
       <div>
-        <h3><a href="https://laibapafaftab-debug.github.io/Aurastudio-portfolio-v2/" style="border-bottom:1px solid var(--line-strong);">AuraStudio</a></h3>
-        <p class="plain">The site you're looking at right now — same frontend approach and build quality used in client work, designed and shipped end-to-end.</p>
+        <h3><a href="https://laibapafaftab-debug.github.io/SEO-landing-page/" target="_blank" rel="noopener" style="border-bottom:1px solid var(--line-strong);">SEO Landing Page</a></h3>
+        <p class="plain">A conversion-focused landing page for technical SEO audits and rebuilds aimed at small businesses: what is usually broken, how a project runs, and a free audit offer.</p>
       </div>
       <div class="case-meta">
         <span class="label mono">stack</span>
-        <div class="stack-line mono">HTML/CSS · Vanilla JS</div>
+        <div class="stack-line mono">HTML/CSS · Vanilla JS · Technical SEO</div>
         <span class="label mono">what it solves</span>
-        <p class="result">A direct sample of production-quality frontend work, not a template.</p>
+        <p class="result">Turns search visitors into audit requests with a clear, fast page.</p>
       </div>
     </div>
   </div>
@@ -345,7 +345,8 @@
 <section class="about" id="about">
   <div class="wrap about-inner sr">
     <div class="about-photo">
-      <img src="about-photo.jpg" alt="Laiba, founder of AuraStudio" style="width:100%; height:100%; object-fit:cover;">
+      <img src="about-photo.jpg" alt="Laiba, founder of AuraStudio" style="width:100%; height:100%; object-fit:cover;" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <span class="mono" style="display:none; color:var(--paper-dim); font-size:2.4rem;">LA</span>
     </div>
     <div>
       <h2>About</h2>
@@ -385,6 +386,7 @@
         <textarea id="f-msg" name="Message" rows="4" placeholder="What are you trying to build or automate?" required></textarea>
       </div>
       <button type="submit" class="btn-primary">Send message</button>
+      <p id="form-status" class="mono" role="status" aria-live="polite" style="font-size:0.85rem; min-height:1.4em;"></p>
     </form>
 
     <div class="contact-ctas">
@@ -401,7 +403,7 @@
   </div>
 </section>
 
-<!-- ===== AuraStudio chat widget: paste this whole block just before </body> ===== -->
+<!-- ===== AuraStudio chat widget ===== -->
 <style>
   #asw{--bg:#111A2C;--surface:#0B1220;--text:#EDEAE2;--dim:#9BA3B4;--accent:#F2B134;--accent-ink:#1A1400;--good:#6FB6A8;--line:rgba(237,234,226,.16);
     position:fixed;right:20px;bottom:20px;z-index:99999;font-family:'IBM Plex Sans',sans-serif}
@@ -548,6 +550,32 @@
       });
     }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
     items.forEach(function(el){ observer.observe(el); });
+  })();
+</script>
+<script>
+  (function(){
+    var f=document.querySelector('.contact-form'), st=document.getElementById('form-status'), btn=f.querySelector('button[type="submit"]');
+    f.addEventListener('submit', function(e){
+      e.preventDefault();
+      btn.disabled=true; btn.textContent='Sending…';
+      st.style.color='var(--paper-dim)'; st.textContent='';
+      var d={}; new FormData(f).forEach(function(v,k){ if(k.charAt(0)!=='_') d[k]=v; });
+      d._subject='New inquiry from AuraStudio site'; d._template='table'; d._captcha='false';
+      fetch('https://formsubmit.co/ajax/laibapafaftab@gmail.com',{
+        method:'POST', headers:{'Content-Type':'application/json','Accept':'application/json'}, body:JSON.stringify(d)
+      })
+      .then(function(r){ return r.json(); })
+      .then(function(j){
+        if(j.success===true || j.success==='true'){
+          f.reset(); st.style.color='var(--good)'; st.textContent='Thanks, your message was sent. I will reply within 24 hours.';
+        } else { throw new Error(j.message || 'The form could not send.'); }
+      })
+      .catch(function(err){
+        st.style.color='var(--accent)';
+        st.textContent='Message not sent: '+(err.message||'network error')+' Please use "Email directly" below.';
+      })
+      .then(function(){ btn.disabled=false; btn.textContent='Send message'; });
+    });
   })();
 </script>
 </body>
